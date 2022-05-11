@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyCrypto</string>
+    <string name="period_1h">12H</string>
+    <string name="period_1day">1D</string>
+    <string name="period_1week">1W</string>
+    <string name="period_1month">1M</string>
+    <string name="period_3month">3M</string>
+    <string name="period_1year">1Y</string>
+    <string name="period_all">ALL</string>
+    <string name="upwards_filled_arrow">▲</string>
+    <string name="downwards_filled_arrow">▼</string>
+    <string name="change_today_s">Change Today\'s</string>
+    <string name="today_s_low">Today\'s Low</string>
+    <string name="today_s_high">Today\'s High</string>
+    <string name="open">Open</string>
+    <string name="statistics">Statistics</string>
+    <string name="web_site">Web Site</string>
+    <string name="twitter">Twitter</string>
+    <string name="reddit">Reddit</string>
+    <string name="github">GitHub</string>
+    <string name="about">About</string>
+    <string name="some_error">some error</string>
+</resources>
