@@ -16,10 +16,10 @@ interface ApiService {
 
 
     @Headers(API_KEY)
-    @GET("top/totalvolfull/")
+    @GET("top/totalvolfull")
     fun getCoinsDate(
         @Query ("tsym") toSymbol : String = "USD" ,
-        @Query ("limit" ) limit : Int = 10
+        @Query ("limit" ) limit : Int = 30
     ) : Call<CoinsDate>
 
 

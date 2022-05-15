@@ -60,7 +60,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_chart_change1"
         app:spark_animateChanges="true"
-        app:spark_linecolor="@color/colorrimary"
+        app:spark_lineColor="@color/colorPrimary"
+
         app:spark_scrubEnabled="true" />
 
 
