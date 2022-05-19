@@ -1,6 +1,7 @@
 package com.salmani.mycrypto.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,45 +19,53 @@ class MarketAdapter(private var date : ArrayList<CoinsDate.Data> ,
 
 {
     @SuppressLint("SetTextI18n")
-
     lateinit var binding: ItemRecyclerCoinsBinding
     inner class MarketViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
 
         fun bindView(dateCoin :CoinsDate.Data) {
-
             binding.txtCoinname.text = dateCoin.coinInfo.fullName
-            binding.txtPrice.text=   dateCoin.rAW.uSD.pRICE.toString()
-            val marketCap =  dateCoin.rAW.uSD.mKTCAP / 1000000000
-            val indexDot = marketCap.toString().indexOf(".")
-            binding.txtMarketCap.text =  marketCap.toString().substring(0 , indexDot + 3) + " B"
-
+            binding.txtPrice.text = dateCoin.dISPLAY.uSD.pRICE
 
             val taghir = dateCoin.rAW.uSD.cHANGEPCT24HOUR
-            if(taghir > 0){
-                binding.txtTaghir.setTextColor(ContextCompat.getColor(binding.root.context, R.color.colorGain))
-                binding.txtTaghir.text = dateCoin.rAW.uSD.cHANGEPCT24HOUR.toString().substring(0,4) + "%"
-            }else if(taghir < 0 ){
-                binding.txtTaghir.setTextColor(ContextCompat.getColor(binding.root.context, R.color.colorLoss))
-                binding.txtTaghir.text = dateCoin.rAW.uSD.cHANGEPCT24HOUR.toString().substring(0,5) + "%"
-            }else {
-                binding.txtTaghir.text = "0 %"
+            if (taghir > 0) {
+                binding.txtTaghir.setTextColor(
+                    ContextCompat.getColor(
+                        binding.root.context,
+                        R.color.colorGain
+                    )
+                )
+                binding.txtTaghir.text =
+                    dateCoin.rAW.uSD.cHANGEPCT24HOUR.toString().substring(0, 4) + "%"
+            } else if (taghir < 0) {
+                binding.txtTaghir.setTextColor(
+                    ContextCompat.getColor(
+                        binding.root.context,
+                        R.color.colorLoss
+                    )
+                )
+                binding.txtTaghir.text =
+                    dateCoin.rAW.uSD.cHANGEPCT24HOUR.toString().substring(0, 5) + "%"
+            } else {
+                binding.txtTaghir.text = "0%"
             }
 
+            val marketCap = dateCoin.rAW.uSD.mKTCAP / 1000000000
+            val indexDot = marketCap.toString().indexOf('.')
+            binding.txtMarketCap.text = "$" + marketCap.toString().substring(0 , indexDot + 3) + " B"
 
-            Glide.with(itemView).load(BASE_URL_IMAGE + dateCoin.coinInfo.imageUrl)
+            Glide
+                .with(itemView)
+                .load(BASE_URL_IMAGE + dateCoin.coinInfo.imageUrl)
                 .into(binding.imgCoins)
 
-            itemView.setOnClickListener{
+
+            itemView.setOnClickListener {
                 recyclerCallback.OnCoinItemClicked(dateCoin)
             }
 
-
-
-
-
         }
-    }
 
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarketViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemRecyclerCoinsBinding.inflate(inflater,parent,false)

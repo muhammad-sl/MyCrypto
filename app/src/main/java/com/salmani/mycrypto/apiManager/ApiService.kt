@@ -19,7 +19,7 @@ interface ApiService {
     @GET("top/totalvolfull")
     fun getCoinsDate(
         @Query ("tsym") toSymbol : String = "USD" ,
-        @Query ("limit" ) limit : Int = 30
+        @Query ("limit" ) limit : Int = 20
     ) : Call<CoinsDate>
 
 

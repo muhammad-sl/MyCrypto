@@ -41,5 +41,15 @@
 
    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+   <com.airbnb.lottie.LottieAnimationView
+       android:layout_width="122dp"
+       android:layout_height="122dp"
+       android:layout_gravity="center"
+      android:id="@+id/lottie_loading"
+       app:lottie_autoPlay="true"
+       app:lottie_loop="true"
+       app:lottie_rawRes="@raw/loading_blue"/>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
